@@ -1,16 +1,28 @@
- let miNumero = "10";
+ let miNumero = "18";
  //console.log(typeof miNumero);
 
  let edad = Number(miNumero);
- console.log(typeof edad);
+ console.log( edad);
 
- if (edad >= 18){
+if(isNaN(edad)){
+    console.log("No es un numero");
+}
+else{
+    if (edad >= 18){
     console.log("La persona puede votar");
  }
  else{
     console.log("Muy joven para votar");
  }
+}
+if(isNaN(edad)){
+    console.log("No es un numero");
+}
+else{
+    //  mismo ejercicio en ternario
+    persona = (edad >= 18) ? "Puede votar" : "Es muy joven para votar";
+    console.log(persona);
+}
 
-//  mismo ejercicio en ternario
- persona = (edad >= 18) ? "Puede votar" : "Es muy joven para votar";
- console.log(persona);
+ 
+

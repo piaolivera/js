@@ -10,7 +10,10 @@ let resultado = miFuncion(2, 3);
 console.log(resultado);
 
 //Declaracion de una funcion tipo expresion 
-let sumar = function (a, b){return a + b};
+let sumar = function (a, b){
+    console.log (arguments[0]);
+    console.log (arguments[1]);
+    return a + b};
 resultado = sumar(1,2);
 console.log(resultado);
 
@@ -22,8 +25,14 @@ console.log(resultado);
 
 
 //funcion flecha
-const sumarFuncionTipoFlecha = (a, b) => a + b;
+/**const sumarFuncionTipoFlecha = (a, b) => a + b;
 resultado = sumarFuncionTipoFlecha(3, 5);
 console.log(resultado);
+*/
+
+
+
+
+
 
 

@@ -41,8 +41,8 @@ let persona3 = {
     }
 }
 // FOR IN
-for (nombrePropiedad in persona3){
+for (nombrePropiedad in persona3){ // recorremos el objeto
     console.log(nombrePropiedad);
-    console.log(persona3[nombrePropiedad]);
+    console.log(persona3[nombrePropiedad]); 
 }
 

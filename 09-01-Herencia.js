@@ -30,7 +30,10 @@ class Persona {
         this._edad = edad
     }
     toString(){
-        return this._idPersona + ': '+ this._nombre + ' '+ this._apellido + ', ' + this._edad;
+        return `${this._idPersona}:
+        ${this._nombre}
+        ${this._apellido}, 
+        ${this._edad}`;
     }
 }
 
@@ -38,12 +41,13 @@ class Persona {
 class Empleado extends Persona {
     static contadorEmpleados = 0;
 
-    constructor(nombre, apellido, edad,sueldo){
-        super(nombre,apellido,edad);
+    constructor(sueldo, nombre, apellido, edad){
+        super(nombre ,apellido, edad);
+         this._idEmpleado = ++Empleado.contadorEmpleados;
         this._sueldo = sueldo;
-        this._idEmpleado = ++Empleado.contadorEmpleados;
+       
     }
-    get _idEmpleado(){
+    get idEmpleado(){
         return this._idEmpleado;
     }
     get sueldo(){
@@ -53,16 +57,20 @@ class Empleado extends Persona {
         this._sueldo = sueldo;
     }
     toString(){
-        return this._idPersona + ': '+ this._nombre + ' '+ this._apellido + ', ' + this._edad + ' salario: '+this._sueldo;
+        return `${super.toString()} ${this._idEmpleado} ${this._sueldo}`;
     }
 }
 
 class Cliente extends Persona {
     static contadorCliente =0;
-    constructor (nombre, apellido, edad, fechaRegistro){
-        super(nombre, apellido, edad)
-        this._fechaRegistro = fechaRegistro;
+
+    constructor ( fechaRegistro, nombre, apellido,edad){
+        super (nombre, apellido,edad)
         this._idCliente = ++Cliente.contadorCliente;
+        this._fechaRegistro = fechaRegistro;
+    }
+    get idCliente(){
+        return this._idCliente;
     }
     get fechaRegistro(){
         return this._fechaRegistro;
@@ -71,14 +79,28 @@ class Cliente extends Persona {
         this._fechaRegistro = fechaRegistro;
     }
     toString(){
-        return this._idPersona + ': '+ this._nombre + ' '+ this._apellido + ', ' + this._edad +' '+this._fechaRegistro;
+        return `${super.toString()} ${this._idCliente} ${this._fechaRegistro}`;
     }
 }
 
-let cliente = new Date(Cliente)
-
+ 
+//Prueba clase persona
 let persona = new Persona ('Amanda', 'Juarez', 32);
 console.log(persona.toString());
 
-let empleado = new Empleado('Lucas', 'Lopez', 25, 1000);
-console.log (empleado.toString());
+let persona2 = new Persona('Carlos', 'Ramirez', 35);
+console.log(persona2.toString());
+
+//Prueba clase Empleado
+let empleado1 = new Empleado(2000, 'Cesar', 'Pereyra', 45);
+console.log(empleado1.toString());
+
+let empleado2 = new Empleado(2000, 'Camila', 'Torres', 25);
+console.log(empleado2.toString());
+
+//Prueba clase Cliente 
+let cliente1 = new Cliente (new Date(),'Miguel', 'Castro', 54 );
+console.log(cliente1.toString());
+
+let cliente2 = new Cliente (new Date(), 'Maria', 'Lara', 22);
+console.log(cliente2.toString());

@@ -6,10 +6,6 @@ Crea una clase Concesionario que pueda almacenar una lista de vehículos en vent
 La clase Concesionario debería tener métodos para agregar vehículos, 
 vender vehículos, mostrar todos los vehículos en venta y calcular el total de ventas.
  
-
-
-
-
  */
 
 class Vehiculo{
@@ -46,6 +42,9 @@ class Vehiculo{
     set precio (precio){
         this._precio = precio;
     }
+    toString (){
+        return this._marca + ' '+this._modelo + ' '+this._anio + ' '+this._precio;
+    }
 
     
 }
@@ -56,39 +55,45 @@ class Consecionario {
         return 5;
     }
     constructor(){
-        this.idVehiculo = ++Consecionario.contadorCompras;
-        this._vehiculo = [];
+        this._idVehiculo = ++Consecionario.contadorCompras;
+        this._vehiculos = [];
     }
 
     agregarProductos(producto){
-        if (Vehiculo.length < MAX_VEHICULOS){
-            this._vehiculo.push(Vehiculo);
+        if (this._vehiculos.length < Consecionario.MAX_VEHICULOS){
+            this._vehiculos.push(producto);
         }else {
         console.log("No se pueden agregar mas productos")
     }
     }
-
+    totalVenta (){
+        let totalVenta =0;
+        for (let vehiculo of this._vehiculos){
+            totalVenta += vehiculo.precio;
+        }
+        return totalVenta;
+    }
+    mostrarOrden(){
+        let productosOrden =0;
+        for (let vehiculo of this._vehiculos){
+            productosOrden += vehiculo.toString()+ '';
+        }
+        console.log(`Total: ${this.totalVenta()}, Productos: ${productosOrden}`);
+    }
     
 }
 
 
-/**
- * Crea una clase Libro con propiedades como título, autor, número de páginas, y una propiedad para el estado del libro (por ejemplo, prestado/disponible).
-Crea una clase Biblioteca que pueda almacenar una lista de libros.
-La biblioteca debería tener métodos para agregar libros, prestar libros, devolver libros y mostrar todos los libros disponibles.
-Clase Vehículo y Concesionario:
 
-Crea una clase Vehículo con propiedades como marca, modelo, año de fabricación y precio.
-Crea una clase Concesionario que pueda almacenar una lista de vehículos en venta.
-La clase Concesionario debería tener métodos para agregar vehículos, vender vehículos, mostrar todos los vehículos en venta y calcular el total de ventas.
-Clase Película y Videoclub:
+let vehiculo1 = new Vehiculo('Ford', 'Focus', '2015', 4000);
+console.log(vehiculo1.toString());
 
-Crea una clase Película con propiedades como título, director, año de lanzamiento y género.
-Crea una clase Videoclub que pueda almacenar una lista de películas disponibles para alquiler.
-La clase Videoclub debería tener métodos para agregar películas, alquilar películas, devolver películas y mostrar todas las películas disponibles.
-Clase Producto y Carrito de Compras:
+let vehiculo2 = new Vehiculo('Chevrolet', 'Onix', 2020, 6000);
+console.log(vehiculo2.toString());
 
-Crea una clase Producto con propiedades como nombre, precio y cantidad disponible.
-Crea una clase CarritoDeCompras que pueda almacenar una lista de productos.
-La clase CarritoDeCompras debería tener métodos para agregar productos, eliminar productos, calcular el total de la compra y mostrar los productos en el carrito.
- */
+let orden1 = new Consecionario();
+orden1.agregarProductos(vehiculo1);
+//let orden2 = new Consecionario();
+orden1.agregarProductos(vehiculo2);
+
+orden1.mostrarOrden();

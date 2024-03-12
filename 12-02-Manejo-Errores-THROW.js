@@ -12,5 +12,5 @@ try {
     //console.log(error.message)
 }
 finally{
-    console.log('Termina la recisión de errores.')
+    console.log('Termina la revisión de errores.')
 }

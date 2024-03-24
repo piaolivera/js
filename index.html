@@ -4,19 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOM CON JAVASCRIPT</title>
+    <style>
+        .azul{
+            color: blue;
+        }
+    </style>
 </head>
 <body>
     <h1 id='cabecero'>Ejemplo Dom con Javascript</h1>
-    <p id="parrafo">Saludos !</p>
+    <p id="parrafo" class="azul">Saludos !</p>
+    <p id="parrafo2" class="azul">Otro parrafo</p>
 
 
     <script>
-        let cabecero = document.getElementById('cabecero').innerHTML;
+        let cabecero = document.getElementById('cabecero');
         let parrafo = document.getElementById('parrafo') //Inner = interno
-        console.log('valor cabecero: '+cabecero);
+        console.log(`Valor del cabecero: ${cabecero.innerHTML}`);
         console.log(`Valor del parrafo: ${parrafo.innerHTML}`);
         console.log('Saludos desde Javascript');
         parrafo.innerHTML ='Nuevo valor del parrafo';
+        cabecero.innerHTML = 'Cambio de cabecero';
+
+        let parrafos = document.getElementsByTagName('p');
+        console.log(`No. párrafos: ${parrafos.length}`);
+        for(let i=0; i < parrafos.length; i++){
+            console.log(`i:   ${i} - ${parrafos[i].innerHTML}`);
+        }
+
     </script>
 </body>
 </html>

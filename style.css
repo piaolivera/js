@@ -4,10 +4,16 @@
 header{
     display: flex;
     min-height: 70px;
-    background-color: rgb(201, 46, 228);
+    background-color: #0a1a2a;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
+}
+a.nav-link{
+    color: #fff;
+}
+.nombre-empresa{
+    color: #fff;
 }
 .logo{
     display: flex;
@@ -62,10 +68,13 @@ h1{
     color: white;
     border-radius: 50px;   
     max-width: 80%;
+    
+
 }
 .info{
    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-   
+   text-align: center;
+   width: 80%;
 }
 .info::first-letter{
     font-size: 200%;
@@ -75,7 +84,7 @@ h1{
     height: auto;
     margin-right: 40px;
     border-radius: 50px;
-    
+   
 }
 
 h2{

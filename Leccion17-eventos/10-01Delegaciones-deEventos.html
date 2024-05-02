@@ -6,6 +6,13 @@
     <title>Manejo DOM con JS</title>
 </head>
 <body>
+    <!--Practicamos con el header eventos. -->
+    <header style="background-color: pink;">
+        <ul>
+            <li id="contacto"> <a href="#">contacto</a></li>        
+        </ul>
+    </header>
+
     <h1 id="titulo">Manejo Dom con JS</h1>
     <br> 
     <form id="forma">
@@ -16,6 +23,12 @@
     </form>
    
     <script> 
+        const contacto = document.getElementById('contacto');
+
+        contacto.addEventListener('click', (e)=>{ // evento click con función flecha
+            e.target.style.color ='red';
+        }, true)
+        
        const forma = document.getElementById('forma');
 
 

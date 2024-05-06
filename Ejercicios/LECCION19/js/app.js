@@ -15,11 +15,17 @@ function mostrarPersonas(){
 
 
 function agregarPersona(){
-    const forma = document.forms('forma');
+    const forma = document.forms['forma'];
     const nombre = forma['nombre'];
     const apellido = forma['apellido'];
-    const persona = new Persona(nombre.value, apellido.value);
-    console.log(persona)
-    personas.push(persona);
-    mostrarPersonas();
+    if(nombre.value !='' && apellido.value != ''){
+        const persona = new Persona(nombre.value, apellido.value);
+        console.log(persona)
+        personas.push(persona);
+        mostrarPersonas();
+    }
+    else{
+        console.log('No hay informacion que agregar.');
+    }
+    
 }
